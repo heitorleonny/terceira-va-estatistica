@@ -1,0 +1,89 @@
+/* Fontes self-contained (bundladas via @fontsource — sem CDN) */
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/inter";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-ink-900 text-paper font-sans antialiased;
+    background-image:
+      radial-gradient(1200px 600px at 82% -10%, rgba(232, 163, 61, 0.05), transparent 60%),
+      radial-gradient(900px 500px at 0% 0%, rgba(120, 171, 196, 0.035), transparent 55%);
+    background-attachment: fixed;
+  }
+  /* Números tabulares em toda tabela/estatística */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+}
+
+@layer components {
+  /* Micro-rótulo tipográfico de terminal */
+  .eyebrow {
+    @apply font-mono text-micro uppercase tracking-micro text-paper-mute;
+  }
+  .panel {
+    @apply rounded-[3px] border border-line bg-ink-800/80 shadow-panel backdrop-blur-[2px];
+  }
+  .hairline {
+    @apply border-line;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-[2px] border px-3 py-1.5 font-mono text-xs
+      uppercase tracking-[0.08em] transition-colors duration-150 disabled:opacity-40
+      disabled:cursor-not-allowed;
+  }
+  .btn-amber {
+    @apply btn border-amber/40 bg-amber/10 text-amber hover:bg-amber/20 hover:border-amber/70;
+  }
+  .btn-ghost {
+    @apply btn border-line text-paper-dim hover:border-line-strong hover:text-paper;
+  }
+  .field {
+    @apply w-full rounded-[2px] border border-line bg-ink-850 px-3 py-2 font-mono text-sm
+      text-paper placeholder:text-paper-mute focus:border-amber/60 focus:outline-none
+      focus:ring-1 focus:ring-amber/30 transition-colors;
+  }
+}
+
+/* Scrollbar discreta de terminal */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2c2c33 transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #2c2c33;
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #3a3a43;
+}
+
+/* Ajustes finos do Recharts para o tema */
+.recharts-cartesian-axis-tick text {
+  fill: #6e6c63;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+}
+.recharts-tooltip-wrapper:focus {
+  outline: none;
+}

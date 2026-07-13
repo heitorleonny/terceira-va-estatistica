@@ -1,0 +1,23 @@
+# Banco SQLite gerado em tempo de execução (recriado automaticamente)
+fii_dashboard.db
+*.db-journal
+*.sqlite
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Frontend (React/Vite)
+web/node_modules/
+web/dist/
+web/.vite/
+*.tsbuildinfo
+
+# Sistema / editores
+.DS_Store
+.idea/
+.vscode/
